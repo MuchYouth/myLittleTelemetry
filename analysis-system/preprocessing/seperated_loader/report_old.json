@@ -1,0 +1,341 @@
+{
+  "traces": [
+    {
+      "trace_id": "a53cbc5daffaa36aec1a7b5b1dc3a1e4",
+      "span_id": "07b9af8723540f61",
+      "service_name": "payment-service",
+      "endpoint": "get /metrics http send",
+      "duration": 41,
+      "attributes": {
+        "asgi.event.type": "http.response.start",
+        "http.status_code": "200",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "payment-service"
+      }
+    },
+    {
+      "trace_id": "a53cbc5daffaa36aec1a7b5b1dc3a1e4",
+      "span_id": "2c411e7c785690a4",
+      "service_name": "payment-service",
+      "endpoint": "get /metrics http send",
+      "duration": 33,
+      "attributes": {
+        "asgi.event.type": "http.response.body",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "payment-service"
+      }
+    },
+    {
+      "trace_id": "a53cbc5daffaa36aec1a7b5b1dc3a1e4",
+      "span_id": "08cdc92463b9db55",
+      "service_name": "payment-service",
+      "endpoint": "get /metrics",
+      "duration": 2254,
+      "attributes": {
+        "http.flavor": "1.1",
+        "http.host": "172.18.0.6:8000",
+        "http.method": "GET",
+        "http.route": "/metrics",
+        "http.scheme": "http",
+        "http.server_name": "payment-service:8000",
+        "http.status_code": "200",
+        "http.target": "/metrics",
+        "http.url": "http://172.18.0.6:8000/metrics",
+        "http.user_agent": "Prometheus/3.3.0",
+        "net.host.port": "8000",
+        "net.peer.ip": "172.18.0.10",
+        "net.peer.port": "58096",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "payment-service"
+      }
+    },
+    {
+      "trace_id": "7506bd0f0124ec6f5f51fe99765bb2de",
+      "span_id": "3807c3c8c5895eb2",
+      "service_name": "user-service",
+      "endpoint": "get /metrics http send",
+      "duration": 118,
+      "attributes": {
+        "asgi.event.type": "http.response.start",
+        "http.status_code": "200",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "user-service"
+      }
+    },
+    {
+      "trace_id": "7506bd0f0124ec6f5f51fe99765bb2de",
+      "span_id": "a7cc111e45356144",
+      "service_name": "user-service",
+      "endpoint": "get /metrics http send",
+      "duration": 67,
+      "attributes": {
+        "asgi.event.type": "http.response.body",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "user-service"
+      }
+    },
+    {
+      "trace_id": "7506bd0f0124ec6f5f51fe99765bb2de",
+      "span_id": "9b32ae9b6176fc20",
+      "service_name": "user-service",
+      "endpoint": "get /metrics",
+      "duration": 7429,
+      "attributes": {
+        "http.flavor": "1.1",
+        "http.host": "172.18.0.7:8000",
+        "http.method": "GET",
+        "http.route": "/metrics",
+        "http.scheme": "http",
+        "http.server_name": "user-service:8000",
+        "http.status_code": "200",
+        "http.target": "/metrics",
+        "http.url": "http://172.18.0.7:8000/metrics",
+        "http.user_agent": "Prometheus/3.3.0",
+        "net.host.port": "8000",
+        "net.peer.ip": "172.18.0.10",
+        "net.peer.port": "54082",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "user-service"
+      }
+    },
+    {
+      "trace_id": "f4113303287ecaff9bcf89de35dcf495",
+      "span_id": "82d20953cfa25c70",
+      "service_name": "notification-service",
+      "endpoint": "get /metrics http send",
+      "duration": 81,
+      "attributes": {
+        "asgi.event.type": "http.response.start",
+        "http.status_code": "200",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "notification-service"
+      }
+    },
+    {
+      "trace_id": "f4113303287ecaff9bcf89de35dcf495",
+      "span_id": "f234f8de491c7043",
+      "service_name": "notification-service",
+      "endpoint": "get /metrics http send",
+      "duration": 47,
+      "attributes": {
+        "asgi.event.type": "http.response.body",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "notification-service"
+      }
+    },
+    {
+      "trace_id": "f4113303287ecaff9bcf89de35dcf495",
+      "span_id": "6f9b3c9dfc128f8a",
+      "service_name": "notification-service",
+      "endpoint": "get /metrics",
+      "duration": 4456,
+      "attributes": {
+        "http.flavor": "1.1",
+        "http.host": "172.18.0.2:8000",
+        "http.method": "GET",
+        "http.route": "/metrics",
+        "http.scheme": "http",
+        "http.server_name": "notification-service:8000",
+        "http.status_code": "200",
+        "http.target": "/metrics",
+        "http.url": "http://172.18.0.2:8000/metrics",
+        "http.user_agent": "Prometheus/3.3.0",
+        "net.host.port": "8000",
+        "net.peer.ip": "172.18.0.10",
+        "net.peer.port": "46822",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "notification-service"
+      }
+    },
+    {
+      "trace_id": "4f25861816d136ceafc5836033982726",
+      "span_id": "5e602b26ac425b07",
+      "service_name": "inventory-service",
+      "endpoint": "get /metrics http send",
+      "duration": 100,
+      "attributes": {
+        "asgi.event.type": "http.response.start",
+        "http.status_code": "200",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "inventory-service"
+      }
+    },
+    {
+      "trace_id": "4f25861816d136ceafc5836033982726",
+      "span_id": "1c3ed85cd3cd6b73",
+      "service_name": "inventory-service",
+      "endpoint": "get /metrics http send",
+      "duration": 80,
+      "attributes": {
+        "asgi.event.type": "http.response.body",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "inventory-service"
+      }
+    },
+    {
+      "trace_id": "4f25861816d136ceafc5836033982726",
+      "span_id": "ee47ffaf68906752",
+      "service_name": "inventory-service",
+      "endpoint": "get /metrics",
+      "duration": 6482,
+      "attributes": {
+        "http.flavor": "1.1",
+        "http.host": "172.18.0.3:8000",
+        "http.method": "GET",
+        "http.route": "/metrics",
+        "http.scheme": "http",
+        "http.server_name": "inventory-service:8000",
+        "http.status_code": "200",
+        "http.target": "/metrics",
+        "http.url": "http://172.18.0.3:8000/metrics",
+        "http.user_agent": "Prometheus/3.3.0",
+        "net.host.port": "8000",
+        "net.peer.ip": "172.18.0.10",
+        "net.peer.port": "33998",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "inventory-service"
+      }
+    },
+    {
+      "trace_id": "1dc67d165edac49d0412b06f46198d5e",
+      "span_id": "6693c7a3e1811cc8",
+      "service_name": "order-service",
+      "endpoint": "get /metrics http send",
+      "duration": 88,
+      "attributes": {
+        "asgi.event.type": "http.response.start",
+        "http.status_code": "200",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "order-service"
+      }
+    },
+    {
+      "trace_id": "1dc67d165edac49d0412b06f46198d5e",
+      "span_id": "a7db64e63dcb8f9e",
+      "service_name": "order-service",
+      "endpoint": "get /metrics http send",
+      "duration": 55,
+      "attributes": {
+        "asgi.event.type": "http.response.body",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "order-service"
+      }
+    },
+    {
+      "trace_id": "1dc67d165edac49d0412b06f46198d5e",
+      "span_id": "631eeef4656730dc",
+      "service_name": "order-service",
+      "endpoint": "get /metrics",
+      "duration": 4247,
+      "attributes": {
+        "http.flavor": "1.1",
+        "http.host": "172.18.0.5:8000",
+        "http.method": "GET",
+        "http.route": "/metrics",
+        "http.scheme": "http",
+        "http.server_name": "order-service:8000",
+        "http.status_code": "200",
+        "http.target": "/metrics",
+        "http.url": "http://172.18.0.5:8000/metrics",
+        "http.user_agent": "Prometheus/3.3.0",
+        "net.host.port": "8000",
+        "net.peer.ip": "172.18.0.10",
+        "net.peer.port": "43544",
+        "otel.library.name": "opentelemetry.instrumentation.fastapi",
+        "otel.library.version": "0.53b1",
+        "otel.scope.name": "opentelemetry.instrumentation.fastapi",
+        "otel.scope.version": "0.53b1",
+        "service.name": "order-service"
+      }
+    }
+  ],
+  "logs": [
+    {
+      "time": null,
+      "level": null,
+      "message": "",
+      "service": null,
+      "trace_id": null,
+      "user_id": null
+    },
+    {
+      "time": null,
+      "level": null,
+      "message": "Hello from Docker!",
+      "service": null,
+      "trace_id": null,
+      "user_id": null
+    },
+    {
+      "time": null,
+      "level": null,
+      "message": "This message shows that your installation appears to be working correctly.",
+      "service": null,
+      "trace_id": null,
+      "user_id": null
+    },
+    {
+      "time": null,
+      "level": null,
+      "message": "",
+      "service": null,
+      "trace_id": null,
+      "user_id": null
+    },
+    {
+      "time": null,
+      "level": null,
+      "message": "To generate this message, Docker took the following steps:",
+      "service": null,
+      "trace_id": null,
+      "user_id": null
+    }
+  ],
+  "metrics": {
+    "request_count": 645.0,
+    "avg_response_time": null,
+    "error_rate": 0.014704216961809055
+  }
+}

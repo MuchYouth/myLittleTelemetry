@@ -1,0 +1,118 @@
+version: "3.8"
+
+services:
+  # 사용자 서비스
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - "8001:8000"
+    networks:
+      - microservice-net
+
+  # 주문 서비스
+  order-service:
+    build:
+      context: ./order-service
+    ports:
+      - "8002:8000"
+    networks:
+      - microservice-net
+
+  # 재고 서비스
+  inventory-service:
+    build:
+      context: ./inventory-service
+    ports:
+      - "8003:8000"
+    networks:
+      - microservice-net
+
+  # 결제 서비스
+  payment-service:
+    build:
+      context: ./payment-service
+    ports:
+      - "8004:8000"
+    networks:
+      - microservice-net
+
+  # 알림 서비스
+  notification-service:
+    build:
+      context: ./notification-service
+    ports:
+      - "8005:8000"
+    networks:
+      - microservice-net
+
+  # OpenTelemetry Collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otel-collector
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otelcol/config.yaml
+    networks:
+      - microservice-net
+    depends_on:
+      - zipkin
+
+  # Zipkin
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - microservice-net
+
+  # Prometheus
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - microservice-net
+    depends_on:
+      - user-service
+      - order-service
+      - inventory-service
+      - payment-service
+      - notification-service
+
+  # Filebeat
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.17.0
+    container_name: filebeat
+    user: root
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - microservice-net
+    depends_on:
+      - elasticsearch
+
+  # Elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - microservice-net
+
+networks:
+  microservice-net:
+    driver: bridge
+

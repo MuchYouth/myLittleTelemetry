@@ -1,0 +1,18 @@
+filebeat.inputs:
+  - type: container
+    paths:
+      - /var/lib/docker/containers/*/*.log
+    processors:
+      - add_docker_metadata: ~
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  indices:
+    - index: "filebeat-%{+yyyy.MM.dd}"
+
+setup.template.enabled: false
+
+logging:
+  level: info
+  to_stdout: true
+  json: true
