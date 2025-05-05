@@ -1,0 +1,79 @@
+version: "3.8"
+services:
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "8001:8000"
+    depends_on:
+      - elasticsearch
+      - zipkin
+      - prometheus
+      - otel-collector
+
+  post-service:
+    build: ./services/post-service
+    ports:
+      - "8002:8000"
+    depends_on:
+      - user-service
+      - elasticsearch
+      - zipkin
+      - prometheus
+      - otel-collector
+
+  comment-service:
+    build: ./services/comment-service
+    ports:
+      - "8003:8000"
+    depends_on:
+      - post-service
+      - user-service
+      - elasticsearch
+      - zipkin
+      - prometheus
+      - otel-collector
+
+  notification-service:
+    build: ./services/notification-service
+    ports:
+      - "8004:8000"
+    depends_on:
+      - comment-service
+      - elasticsearch
+      - zipkin
+      - prometheus
+      - otel-collector
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+
+  zipkin:
+    image: openzipkin/zipkin:2.24
+    ports:
+      - "9411:9411"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    volumes:
+      - ./otel-collector-config.yml:/etc/otel-collector-config.yml:ro
+    command: ["--config", "/etc/otel-collector-config.yml"]
+    ports:
+      - "4317:4317"
+      - "55681:55681"
+
+volumes:
+  esdata:
