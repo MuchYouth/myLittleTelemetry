@@ -43,6 +43,6 @@ async def upload_yml(
     )
 
     # 3) 업로드 후 리다이렉트
-    return RedirectResponse(url="/html/result.html", status_code=303)
+    return RedirectResponse(url="/result.html", status_code=303)
 
 

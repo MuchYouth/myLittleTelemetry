@@ -1,9 +1,9 @@
 # backend/app/main.py
-
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import os
+import subprocess
 from .routers.upload import router as upload_router
 
 app = FastAPI(title="YML Upload API")
@@ -44,3 +44,24 @@ app.include_router(upload_router, prefix="/api")
 @app.get("/", include_in_schema=False)
 async def root():
     return FileResponse(os.path.join(PROJECT_ROOT, "frontend", "index.html"))
+
+@app.get("/result.html", include_in_schema=False)
+async def serve_result():
+    compose_path = os.path.join(PROJECT_ROOT, "uploads","docker-compose.yml")
+    script_path  = os.path.join(PROJECT_ROOT, "scripts", "update_compose.py")
+
+
+    try:
+        subprocess.run(
+            ["python", script_path, compose_path],
+            check=True,
+            text=True
+        )
+    except subprocess.CalledProcessError as e:
+        print("=== 스크립트 오류 ===\n", e.stderr)
+        raise HTTPException(500, detail="Compose 업데이트 실패")
+
+    return FileResponse(
+        os.path.join(PROJECT_ROOT, "frontend", "result.html"),
+        media_type="text/html"
+    )
